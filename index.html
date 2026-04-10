@@ -951,6 +951,138 @@ nav .container { display:flex; align-items:center; justify-content:space-between
   margin: 0 auto;
 }
 
+/* UNIT ECONOMICS */
+.unit-econ {
+  margin: 56px 0 40px;
+  padding: 44px 40px;
+  background: linear-gradient(135deg, rgba(11,21,48,0.85) 0%, rgba(6,13,32,0.85) 100%);
+  border: 1px solid rgba(0,191,255,0.18);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.unit-econ::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-cyan);
+}
+.unit-econ > p {
+  color: var(--gray-300);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+.unit-econ > p strong {
+  color: var(--cyan);
+  font-weight: 700;
+}
+.econ-assumptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0 0 36px;
+}
+.econ-assumption {
+  background: rgba(0,191,255,0.05);
+  border: 1px solid rgba(0,191,255,0.18);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.econ-assumption-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+.econ-assumption-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.econ-assumption-value span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-400);
+}
+.econ-assumption-note {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--gray-400);
+}
+.econ-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,191,255,0.18);
+}
+.econ-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(6,13,32,0.6);
+}
+.econ-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-align: left;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0,191,255,0.2);
+  background: rgba(0,191,255,0.06);
+}
+.econ-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--gray-200);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.econ-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.econ-table tbody tr:hover td {
+  background: rgba(0,191,255,0.03);
+}
+.econ-table .exit-row td {
+  background: rgba(0,230,118,0.06);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 15px;
+  border-top: 1px solid rgba(0,230,118,0.3);
+}
+.econ-table .exit-row td:last-child {
+  color: var(--green);
+  font-size: 17px;
+}
+.exit-tag {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px 9px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(0,230,118,0.12);
+  border: 1px solid rgba(0,230,118,0.35);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.econ-footnote {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--gray-400);
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
 /* VIKING / MANIFESTO */
 .manifesto-section {
   background: linear-gradient(135deg, rgba(0,230,118,0.04) 0%, rgba(0,191,255,0.04) 100%);
@@ -1127,6 +1259,19 @@ footer .container {
   /* EXIT */
   .exit-card { padding: 36px 20px; }
   .exit-card .exit-number { font-size: 52px; }
+
+  /* UNIT ECONOMICS */
+  .unit-econ { padding: 28px 20px; margin: 36px 0 28px; }
+  .unit-econ h2 { font-size: 22px !important; }
+  .unit-econ > p { font-size: 14px; }
+  .econ-assumptions { grid-template-columns: 1fr; gap: 12px; margin-bottom: 24px; }
+  .econ-assumption { padding: 16px 18px; }
+  .econ-assumption-value { font-size: 24px; }
+  .econ-table th, .econ-table td { padding: 12px 14px; font-size: 12px; }
+  .econ-table .exit-row td { font-size: 13px; }
+  .econ-table .exit-row td:last-child { font-size: 15px; }
+  .exit-tag { display: block; margin: 6px 0 0; width: fit-content; }
+  .econ-footnote { font-size: 12px; }
   .exit-card .exit-sub { font-size: 17px; }
 
   /* MANIFESTO */
@@ -1510,8 +1655,86 @@ footer .container {
     <div class="exit-card">
       <span class="exit-label">5-Year Exit Target</span>
       <div class="exit-number">$100M</div>
-      <div class="exit-sub">ARR · Strategic Exit · 5 Years</div>
+      <div class="exit-sub">Valuation · Strategic Exit · 5 Years</div>
       <p>Our exit strategy is built on becoming the undisputed operating system for independent healthcare in America. We become the most strategically valuable acquisition in health-tech or we build to a public offering. Either way, we get there the same way we got here: by outbuilding, outserving, and outfighting everyone who is not paying attention to this market.</p>
+    </div>
+
+    <!-- UNIT ECONOMICS: Path to $100M Valuation -->
+    <div class="unit-econ">
+      <span class="section-label" style="margin-bottom:8px;">Unit Economics</span>
+      <h2 style="font-size:28px; margin-bottom:14px;">The Path to a $100M Valuation.</h2>
+      <p style="max-width:820px;">The $100M target is a valuation, not annual revenue. Health-tech SaaS companies are routinely valued at <strong>4x to 6x ARR</strong> based on growth rate, retention, and strategic fit. At a 6x multiple, we only need <strong>~$16.7M in ARR</strong> to unlock a $100M strategic exit. Our pricing makes that math achievable with under 700 locations.</p>
+
+      <div class="econ-assumptions">
+        <div class="econ-assumption">
+          <div class="econ-assumption-label">Blended ARPU</div>
+          <div class="econ-assumption-value">$2,000<span>/mo per location</span></div>
+          <div class="econ-assumption-note">OS + select add-ons. Sits between the $499 OS floor and the $2,399 All-In ceiling.</div>
+        </div>
+        <div class="econ-assumption">
+          <div class="econ-assumption-label">Valuation Multiple</div>
+          <div class="econ-assumption-value">6x<span> ARR</span></div>
+          <div class="econ-assumption-note">Standard health-tech SaaS range. Strategic acquirers commonly pay above this for category leaders.</div>
+        </div>
+        <div class="econ-assumption">
+          <div class="econ-assumption-label">Gross Retention</div>
+          <div class="econ-assumption-value">95%+<span> annual</span></div>
+          <div class="econ-assumption-note">Mission-critical operating software. Practices cannot rip out the system once fully deployed.</div>
+        </div>
+      </div>
+
+      <div class="econ-table-wrap">
+        <table class="econ-table">
+          <thead>
+            <tr>
+              <th>Milestone</th>
+              <th>Locations</th>
+              <th>MRR</th>
+              <th>ARR</th>
+              <th>Valuation (6x)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Today · April 2026</td>
+              <td>8</td>
+              <td>$12K</td>
+              <td>$144K</td>
+              <td>$864K</td>
+            </tr>
+            <tr>
+              <td>Year 1 · Q2 2027</td>
+              <td>50</td>
+              <td>$90K</td>
+              <td>$1.08M</td>
+              <td>$6.5M</td>
+            </tr>
+            <tr>
+              <td>Year 2 · Q2 2028</td>
+              <td>200</td>
+              <td>$400K</td>
+              <td>$4.8M</td>
+              <td>$28.8M</td>
+            </tr>
+            <tr>
+              <td>Year 3 · Q2 2029</td>
+              <td>450</td>
+              <td>$900K</td>
+              <td>$10.8M</td>
+              <td>$64.8M</td>
+            </tr>
+            <tr class="exit-row">
+              <td>Year 4 · Q2 2030 <span class="exit-tag">EXIT WINDOW</span></td>
+              <td>700</td>
+              <td>$1.4M</td>
+              <td>$16.8M</td>
+              <td>$100.8M</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="econ-footnote">Scenario assumes blended ARPU of $2,000/mo, 95%+ gross retention, and a 6x ARR exit multiple. Acceleration is enabled by the Dr. Bessey and Dr. Gonzales partnership giving MedRebel direct market access into the independent dental vertical. The All-In package at $2,399/mo alone pushes the math more aggressive, and any premium above 6x (standard for category leaders) compresses the timeline further.</p>
     </div>
 
     <div class="stat-grid">
@@ -1532,8 +1755,8 @@ footer .container {
       </div>
       <div class="stat-card">
         <div class="stat-value">$100M</div>
-        <div class="stat-label">Exit Target · 5 Years</div>
-        <div class="stat-sub">ARR-based strategic exit</div>
+        <div class="stat-label">Valuation Target · 5 Years</div>
+        <div class="stat-sub">6x ARR strategic exit</div>
       </div>
     </div>
   </div>
