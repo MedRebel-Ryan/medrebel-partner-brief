@@ -318,172 +318,257 @@ nav .container { display:flex; align-items:center; justify-content:space-between
   letter-spacing: 0.5px;
 }
 
-/* ARCHITECTURE DIAGRAM */
-.architecture {
-  position: relative;
-  background: linear-gradient(135deg, rgba(0,191,255,0.04) 0%, rgba(0,230,118,0.03) 100%);
-  border: 1px solid rgba(0,191,255,0.18);
-  border-radius: 20px;
-  padding: 56px 40px;
-  margin: 40px 0 56px;
-  overflow: hidden;
-}
-.architecture::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(0,191,255,0.10) 0%, transparent 55%);
-  pointer-events: none;
-}
-.arch-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1.1fr 1fr;
-  gap: 28px;
-  align-items: center;
-  z-index: 2;
-}
-.arch-grid::before {
-  content: '';
-  position: absolute;
-  left: 28%;
-  right: 28%;
-  top: 50%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,191,255,0.45) 25%, rgba(0,230,118,0.45) 75%, transparent);
-  z-index: 0;
-}
-.arch-col-label {
+/* PRICING STEPS */
+.pricing-step { margin: 56px 0 0; }
+.pricing-step-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--cyan);
-  margin-bottom: 18px;
-  text-align: center;
-}
-.pms-list {
-  background: var(--navy-card);
-  border: 1px solid rgba(0,191,255,0.18);
-  border-radius: 16px;
-  padding: 20px 16px;
-  position: relative;
-  z-index: 3;
-}
-.pms-item {
-  padding: 11px 0;
   font-weight: 700;
-  font-size: 13px;
-  color: var(--gray-200);
-  text-align: center;
-  border-bottom: 1px dashed rgba(255,255,255,0.06);
+  margin-bottom: 10px;
 }
-.pms-item:last-child { border-bottom: none; }
-.pms-item.more {
-  color: var(--cyan);
-  font-size: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 1.5px;
-  padding-top: 14px;
+.pricing-step h3 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
 }
-.hub-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.pricing-step > p {
+  color: var(--gray-300);
+  font-size: 15px;
+  max-width: 780px;
+  margin-bottom: 24px;
+}
+
+/* FOUNDATION CARD (MedRebel OS) */
+.foundation-card {
+  background: linear-gradient(135deg, rgba(0,191,255,0.06) 0%, rgba(0,85,204,0.04) 100%);
+  border: 1px solid rgba(0,191,255,0.3);
+  border-radius: 16px;
+  padding: 36px;
+  margin: 20px 0;
   position: relative;
-  z-index: 3;
+  overflow: hidden;
 }
-.hub-circle {
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--navy-light) 0%, var(--navy) 100%);
-  border: 2px solid rgba(0,191,255,0.45);
-  box-shadow: 0 0 70px rgba(0,191,255,0.28), inset 0 0 50px rgba(0,191,255,0.12);
+.foundation-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-cyan);
+}
+.foundation-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 26px;
-  text-align: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(0,191,255,0.15);
+  margin-bottom: 26px;
 }
-.hub-logo {
+.foundation-name {
   font-size: 26px;
   font-weight: 900;
   color: var(--white);
-  margin-bottom: 6px;
-  letter-spacing: -0.5px;
-  line-height: 1;
+  line-height: 1.1;
 }
-.hub-logo span { color: var(--cyan); }
-.hub-label {
+.foundation-tagline {
+  font-size: 13px;
+  color: var(--cyan);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.hub-badges {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.hub-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8px;
-  font-weight: 700;
   letter-spacing: 1px;
-  color: var(--green);
-  background: rgba(0,230,118,0.1);
-  border: 1px solid rgba(0,230,118,0.35);
-  padding: 4px 7px;
-  border-radius: 10px;
+  text-transform: uppercase;
+  margin-top: 6px;
 }
-.bridge-labels {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 16px;
+.foundation-price {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--cyan);
+  line-height: 1;
+  white-space: nowrap;
+}
+.foundation-price span {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-400);
+  font-weight: 400;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.foundation-desc {
+  color: var(--gray-300);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+  max-width: 760px;
+}
+.foundation-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+}
+.foundation-feature {
+  padding-left: 20px;
+  position: relative;
+}
+.foundation-feature::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 7px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(0,191,255,0.5);
+}
+.foundation-feature strong {
+  display: block;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.foundation-feature span {
+  color: var(--gray-300);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* INTEGRATION TABLE */
+.integration-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--navy-card);
+  border: 1px solid rgba(0,191,255,0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0 12px;
+}
+.integration-table th {
+  text-align: left;
+  padding: 14px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(0,191,255,0.04);
+  border-bottom: 1px solid rgba(0,191,255,0.2);
+  font-weight: 700;
+}
+.integration-table th:last-child { text-align: right; }
+.integration-table td {
+  padding: 13px 20px;
+  color: var(--gray-200);
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.integration-table tr:last-child td { border-bottom: none; }
+.integration-table td:last-child {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+.integration-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+/* CATEGORY GROUP */
+.category-group { margin: 28px 0; }
+.category-group-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,191,255,0.15);
   color: var(--cyan);
 }
-.category-stack {
+.category-group.ops .category-group-title { color: var(--green); border-bottom-color: rgba(0,230,118,0.2); }
+.category-group.growth .category-group-title { color: var(--purple); border-bottom-color: rgba(139,92,246,0.2); }
+
+/* TOOL ROW LIST */
+.tool-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  position: relative;
-  z-index: 3;
+  gap: 10px;
 }
-.category-card {
+.tool-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 22px;
   background: var(--navy-card);
-  border: 1px solid rgba(0,191,255,0.18);
-  border-radius: 12px;
-  padding: 14px 16px;
+  border: 1px solid rgba(0,191,255,0.12);
+  border-radius: 10px;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.category-card.comms { border-left: 3px solid var(--cyan); }
-.category-card.ops { border-left: 3px solid var(--green); }
-.category-card.growth { border-left: 3px solid var(--purple); }
-.cat-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
+.tool-row:hover {
+  border-color: rgba(0,191,255,0.3);
+  transform: translateX(2px);
+}
+.tool-info { flex: 1; min-width: 0; }
+.tool-name {
+  font-size: 15px;
   font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
 }
-.category-card.comms .cat-title { color: var(--cyan); }
-.category-card.ops .cat-title { color: var(--green); }
-.category-card.growth .cat-title { color: var(--purple); }
-.cat-items {
-  font-size: 11px;
+.tool-name .soon-tag {
+  display: inline-block;
+  font-size: 9px;
+  color: var(--purple);
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.35);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.tool-desc {
+  font-size: 13px;
   color: var(--gray-300);
   line-height: 1.55;
 }
+.tool-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.25);
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
+  line-height: 1.2;
+}
+.tool-price small {
+  display: block;
+  font-size: 9px;
+  color: var(--gray-400);
+  font-weight: 400;
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+.category-group.ops .tool-price { color: var(--green); background: rgba(0,230,118,0.08); border-color: rgba(0,230,118,0.25); }
+.category-group.growth .tool-price { color: var(--purple); background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.25); }
 
 /* PRODUCT GROUP HEADERS */
 .product-group { margin: 56px 0 0; }
@@ -1024,21 +1109,31 @@ footer .container {
   /* CALLOUTS */
   .callout { padding: 18px 20px; }
 
-  /* ARCHITECTURE DIAGRAM */
-  .architecture { padding: 32px 18px; }
-  .arch-grid { grid-template-columns: 1fr; gap: 24px; }
-  .arch-grid::before { display: none; }
-  .hub-circle { width: 190px; height: 190px; padding: 20px; }
-  .hub-logo { font-size: 22px; }
-  .bridge-labels { font-size: 8px; }
-  .pms-list { padding: 16px 12px; }
-  .pms-item { font-size: 12px; padding: 9px 0; }
+  /* PRICING STEPS */
+  .pricing-step { margin: 40px 0 0; }
+  .pricing-step h3 { font-size: 22px; }
+  .pricing-step > p { font-size: 14px; }
 
-  /* PRODUCT GROUPS */
-  .product-group { margin: 40px 0 0; }
-  .product-group-header { padding-bottom: 10px; margin-bottom: 18px; }
-  .product-group-title { font-size: 10px; }
-  .product-group-subtitle { font-size: 11px; }
+  /* FOUNDATION CARD */
+  .foundation-card { padding: 24px 20px; }
+  .foundation-header { gap: 14px; padding-bottom: 16px; margin-bottom: 20px; }
+  .foundation-name { font-size: 22px; }
+  .foundation-price { font-size: 30px; }
+  .foundation-desc { font-size: 13px; }
+  .foundation-features { grid-template-columns: 1fr; gap: 16px; }
+
+  /* INTEGRATION TABLE */
+  .integration-table th, .integration-table td { padding: 11px 14px; font-size: 13px; }
+
+  /* CATEGORY GROUPS */
+  .category-group { margin: 24px 0; }
+  .category-group-title { font-size: 10px; }
+
+  /* TOOL ROWS */
+  .tool-row { flex-direction: column; align-items: flex-start; padding: 16px; gap: 12px; }
+  .tool-price { align-self: flex-start; font-size: 13px; padding: 6px 11px; }
+  .tool-name { font-size: 14px; }
+  .tool-desc { font-size: 12px; }
 
   /* ALL-IN PACKAGE */
   .all-in { padding: 28px 20px; }
@@ -1103,242 +1198,220 @@ footer .container {
 <section class="section">
   <div class="container">
     <span class="section-label">Chapter 02 · The Product Suite</span>
-    <h2>The MedRebel Intelligent Hub.</h2>
-    <p>MedRebel is not "all in one." We are not one-size-fits-all. Our architecture is modular by design because every practice is different and every practice deserves exactly what they need, nothing they don't. At the core sits MedRebel OS, the intelligent operating layer that connects your existing PMS or EHR to a full suite of AI-powered tools built specifically for independent healthcare.</p>
+    <h2>Build Your Perfect Operating System À La Carte.</h2>
+    <p>MedRebel is modular by design. Pick only the tools you need, skip the ones you don't, and run your practice from one connected platform. Every practice is different and every practice deserves exactly what they need, nothing they don't.</p>
 
-    <!-- ARCHITECTURE DIAGRAM -->
-    <div class="architecture">
-      <div class="arch-grid">
-
-        <!-- PMS / EHR Column -->
-        <div>
-          <div class="arch-col-label">Your PMS / EHR</div>
-          <div class="pms-list">
-            <div class="pms-item">Open Dental</div>
-            <div class="pms-item">Dentrix</div>
-            <div class="pms-item">Eaglesoft</div>
-            <div class="pms-item">SimplePractice</div>
-            <div class="pms-item">PtEverlasting</div>
-            <div class="pms-item">Jane</div>
-            <div class="pms-item more">+ 20 MORE PLATFORMS</div>
+    <!-- STEP 01: FOUNDATION -->
+    <div class="pricing-step">
+      <div class="pricing-step-label">// Step 01 · Your Foundation</div>
+      <h3>Start Here</h3>
+      <div class="foundation-card">
+        <div class="foundation-header">
+          <div>
+            <div class="foundation-name">MedRebel OS</div>
+            <div class="foundation-tagline">The Intelligent Operating Layer</div>
+          </div>
+          <div class="foundation-price">$499<span>/mo per location</span></div>
+        </div>
+        <p class="foundation-desc">The medical-grade environment that hosts your team, your data, and your automation. MedRebel OS is the secure command center required to unlock and orchestrate our specialized AI suite. 30 active users. 8 locations. Proven and live.</p>
+        <div class="foundation-features">
+          <div class="foundation-feature">
+            <strong>Secure AI Gateway (Claude)</strong>
+            <span>Native, HIPAA-safe access to Claude. World-class LLM power for drafting and analysis without the risk of unsecured personal accounts.</span>
+          </div>
+          <div class="foundation-feature">
+            <strong>Omnichannel Visibility</strong>
+            <span>A single synchronized dashboard capturing every patient touchpoint. Phones, texts, and faxes in one trackable history.</span>
+          </div>
+          <div class="foundation-feature">
+            <strong>Open API Architecture</strong>
+            <span>The ultimate connectivity hub. Our open framework bridges legacy software and third-party apps into one unified workflow.</span>
+          </div>
+          <div class="foundation-feature">
+            <strong>Unified Practice Interface</strong>
+            <span>One professional login for Web, Desktop, and Mobile. Your team connected and your data synced across every device.</span>
+          </div>
+          <div class="foundation-feature">
+            <strong>Cross-Functional Tasking</strong>
+            <span>A high-speed internal engine that routes patient needs to the right team member instantly. The digital nervous system of your office.</span>
+          </div>
+          <div class="foundation-feature">
+            <strong>The Compliance Shield</strong>
+            <span>Enterprise-grade HIPAA and BAA included. Hardened security infrastructure so you can focus on care.</span>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Hub Column -->
-        <div class="hub-wrap">
-          <div class="hub-circle">
-            <div class="hub-logo">med<span>rebel</span></div>
-            <div class="hub-label">Intelligent Hub</div>
-            <div class="hub-badges">
-              <span class="hub-badge">HIPAA</span>
-              <span class="hub-badge">SOC 2 TYPE II</span>
+    <!-- STEP 02: PMS/EHR SYNC -->
+    <div class="pricing-step">
+      <div class="pricing-step-label">// Step 02 · Connect Your PMS</div>
+      <h3>PMS / EHR Sync</h3>
+      <p>Turn your PMS into an operational engine. Syncing is optional but highly recommended to unlock two-way scheduling, auto-charting, and live KPI dashboards. Without integration, some AI reporting and automation tools may have limited functionality.</p>
+      <table class="integration-table">
+        <thead>
+          <tr><th>Platform</th><th>Monthly</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>No integration at this time</td><td>$0/mo</td></tr>
+          <tr><td>Open Dental</td><td>$100/mo</td></tr>
+          <tr><td>Dentrix</td><td>$199/mo</td></tr>
+          <tr><td>Eaglesoft</td><td>$199/mo</td></tr>
+          <tr><td>SimplePractice</td><td>$149/mo</td></tr>
+          <tr><td>JaneApp</td><td>$149/mo</td></tr>
+          <tr><td>PT Everywhere</td><td>$149/mo</td></tr>
+          <tr><td>Cliniko</td><td>$149/mo</td></tr>
+          <tr><td>Nookal</td><td>$149/mo</td></tr>
+          <tr><td>Halaxy</td><td>$149/mo</td></tr>
+          <tr><td>Zanda</td><td>$149/mo</td></tr>
+        </tbody>
+      </table>
+      <p class="integration-note">Expanding integrations — actively building and securing vendors to increase our integration library. More platforms coming soon.</p>
+    </div>
+
+    <!-- STEP 03: A LA CARTE AI -->
+    <div class="pricing-step">
+      <div class="pricing-step-label">// Step 03 · Add AI Tools</div>
+      <h3>À La Carte AI Add-Ons</h3>
+      <p>Every AI add-on runs on MedRebel's HIPAA-compliant infrastructure. Toggle on what your practice needs, toggle off what it doesn't.</p>
+
+      <!-- Communication Tools -->
+      <div class="category-group comms">
+        <div class="category-group-title">Communication Tools</div>
+        <div class="tool-list">
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">MedRebel Voice: VOIP</div>
+              <div class="tool-desc">Cloud telecom built for healthcare. AI summarizes every call, auto-tags charts, and pops patient records instantly. Five lines included.</div>
             </div>
+            <div class="tool-price">$199/mo</div>
           </div>
-          <div class="bridge-labels">
-            <span>← SECURE BRIDGE</span>
-            <span>PRODUCT SUITE →</span>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">AI Voice Receptionist</div>
+              <div class="tool-desc">Premium AI voice powered by ElevenLabs. Answers 24/7, intelligently routes calls, and triages after-hours emergencies directly to the on-call provider.</div>
+            </div>
+            <div class="tool-price">$499/mo</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">AI Web Chat Agent</div>
+              <div class="tool-desc">HIPAA-compliant AI engages website visitors 24/7, qualifies leads with intelligent follow-up questions, and instantly routes actionable tasks to the right person on your team.</div>
+            </div>
+            <div class="tool-price">$149/mo</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">Intelligent Fax Automation</div>
+              <div class="tool-desc">AI reads every fax, extracts structured data (EOBs, referrals, claims), creates Smart Claim Cards, and routes to the right team member. Zero hardware, zero manual entry.</div>
+            </div>
+            <div class="tool-price">$399/mo</div>
           </div>
         </div>
+      </div>
 
-        <!-- Product Categories Column -->
-        <div>
-          <div class="arch-col-label">Product Categories</div>
-          <div class="category-stack">
-            <div class="category-card comms">
-              <div class="cat-title">Unified Communications</div>
-              <div class="cat-items">Voice VOIP · AI Receptionist · Web Chat · AI Fax</div>
+      <!-- Practice Operation Tools -->
+      <div class="category-group ops">
+        <div class="category-group-title">Practice Operation Tools</div>
+        <div class="tool-list">
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">Intelligent Patient Intake</div>
+              <div class="tool-desc">Paperless intake and consent forms sync directly into the patient profile and instantly task your front desk and billing teams upon completion. Better workflows, no clipboards, zero manual data entry.</div>
             </div>
-            <div class="category-card ops">
-              <div class="cat-title">Practice Operations</div>
-              <div class="cat-items">Patient Intake · Task Manager · MedRebel HR · MedRebel Academy</div>
-            </div>
-            <div class="category-card growth">
-              <div class="cat-title">Performance &amp; Growth</div>
-              <div class="cat-items">KPI Dashboards · Reputation · Reactivation · SEO/AEO · Rebel Scout</div>
-            </div>
+            <div class="tool-price">$89/mo</div>
           </div>
         </div>
+      </div>
 
-      </div>
-    </div>
-
-    <!-- CORE PLATFORM -->
-    <div class="product-group">
-      <div class="product-group-header">
-        <div class="product-group-title">// Core Platform</div>
-        <div class="product-group-subtitle">The operating system for independent healthcare</div>
-      </div>
-      <div class="product-grid">
-        <div class="product-card live">
-          <span class="product-icon">🖥️</span>
-          <span class="product-eyebrow">MedRebel OS</span>
-          <h3>The Intelligent Operating Layer</h3>
-          <p>The command center that connects Operations, Communications, and Marketing in one HIPAA-secure environment. Medical-grade CRM built for independent healthcare, not bolted on to it. 30 active users. 8 locations. Proven and live.</p>
-          <span class="price">Foundation Platform</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">🌉</span>
-          <span class="product-eyebrow">Rebel Bridge · Owned IP</span>
-          <h3>The Integration Layer</h3>
-          <p>Our live EHR and PMS integration engine. Open Dental required our greatest development investment and is live with improved schedule sync. We own this intellectual property outright. Rebel Bridge connects 20+ data points where most connectors manage 4 to 5. Expanding to 20+ target platforms.</p>
-          <span class="price">Included with OS</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- UNIFIED COMMUNICATIONS -->
-    <div class="product-group">
-      <div class="product-group-header">
-        <div class="product-group-title">// Unified Communications</div>
-        <div class="product-group-subtitle">Every patient touchpoint, one intelligent layer</div>
-      </div>
-      <div class="product-grid">
-        <div class="product-card live">
-          <span class="product-icon">☎️</span>
-          <span class="product-eyebrow">Voice · VOIP</span>
-          <h3>MedRebel Voice</h3>
-          <p>Cloud telecom built for healthcare. AI summarizes every call, auto-tags charts, and pops patient records instantly. Call from your desk, web, or mobile app. Yealink phones plus five lines included.</p>
-          <span class="price">$199/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">🤖</span>
-          <span class="product-eyebrow">AI · 24/7 Coverage</span>
-          <h3>AI Voice Receptionist</h3>
-          <p>Premium AI voice powered by ElevenLabs. Answers 24/7, intelligently routes calls, triages after-hours emergencies to the on-call provider. Tested at Breathing Center of Houston where call satisfaction climbed from 70% to 95%.</p>
-          <span class="price">$499/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">💬</span>
-          <span class="product-eyebrow">AI · Multilingual</span>
-          <h3>AI Web Chat Agent</h3>
-          <p>HIPAA-compliant site widget that answers patient questions 24/7 in 10+ languages. Qualifies leads, captures contact info, and routes actionable tasks to the right person on your team. Spanish-speaking patients at Hockley Dental have been the biggest winners.</p>
-          <span class="price">$149/mo</span>
-        </div>
-        <div class="product-card launching">
-          <span class="product-icon">📠</span>
-          <span class="product-eyebrow">AI · Automation</span>
-          <h3>Intelligent Fax Automation</h3>
-          <p>AI reads every fax, extracts structured data from EOBs, referrals, and claims, creates Smart Claim Cards, and routes them to the right team member. Zero hardware. Zero manual entry.</p>
-          <span class="price">$399/mo</span>
+      <!-- Performance & Growth -->
+      <div class="category-group growth">
+        <div class="category-group-title">Performance &amp; Growth</div>
+        <div class="tool-list">
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">Smart KPI Dashboards</div>
+              <div class="tool-desc">Track live production, cancellations, and team performance. Our operations-trained AI analyzes your metrics weekly and delivers actionable insights and next-step recommendations.</div>
+            </div>
+            <div class="tool-price">$149/mo</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">Reactivation AI Agent</div>
+              <div class="tool-desc">Turn your stale database into booked revenue. Deploys a perfectly timed sequence of staff-recorded voicemail drops, personalized SMS, and emails to get patients back in the chair. Zero manual dialing.</div>
+            </div>
+            <div class="tool-price">$149/mo</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">AI Reputation Manager</div>
+              <div class="tool-desc">Automated Google review requests after every appointment. AI drafts professional responses to reviews. 100% automated reputation management.</div>
+            </div>
+            <div class="tool-price">$149/mo</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">AI Social Content Engine</div>
+              <div class="tool-desc">Generates and publishes professional, HIPAA-compliant social media posts, captions, and images tailored perfectly to your healthcare vertical.</div>
+            </div>
+            <div class="tool-price">$149/mo</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-info">
+              <div class="tool-name">Advanced SEO &amp; AI Search (AEO)</div>
+              <div class="tool-desc">Get found by patients searching Google and AI answer engines like ChatGPT and Perplexity. Local SEO, content optimization, and AI citation strategy built for healthcare.</div>
+            </div>
+            <div class="tool-price">$99/mo</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- PRACTICE OPERATIONS -->
-    <div class="product-group ops">
-      <div class="product-group-header">
-        <div class="product-group-title">// Practice Operations</div>
-        <div class="product-group-subtitle">Kill the busywork. Focus on the patient.</div>
-      </div>
-      <div class="product-grid">
-        <div class="product-card live">
-          <span class="product-icon">📋</span>
-          <span class="product-eyebrow">Intake · Digital Forms</span>
-          <h3>Intelligent Patient Intake</h3>
-          <p>Paperless intake and consent forms that sync directly into the patient profile and instantly task front desk and billing teams upon completion. Better workflows, no clipboards, zero manual data entry.</p>
-          <span class="price">$89/mo</span>
+    <!-- STEP 04: CUSTOM APPS -->
+    <div class="pricing-step">
+      <div class="pricing-step-label">// Step 04 · Add Custom Apps</div>
+      <h3>MedRebel Custom Apps</h3>
+      <p>Purpose-built applications designed exclusively for independent healthcare practices. Add only what your team needs.</p>
+      <div class="tool-list">
+        <div class="tool-row">
+          <div class="tool-info">
+            <div class="tool-name">MedRebel HR Portal</div>
+            <div class="tool-desc">Automates HR paperwork. Manages PTO. Generates handbooks and HIPAA policies. Everything an independent practice needs to manage their team compliantly, without the expensive consultant.</div>
+          </div>
+          <div class="tool-price">$100/mo<small>with CRM · $200 standalone</small></div>
         </div>
-        <div class="product-card live">
-          <span class="product-icon">✅</span>
-          <span class="product-eyebrow">Workflow · Built-In</span>
-          <h3>Task Manager</h3>
-          <p>Automates workflows. Tracks progress. Syncs your team. Built directly into MedRebel OS so no task falls through the cracks and every team member always knows exactly what is next.</p>
-          <span class="price">Included with OS</span>
+        <div class="tool-row">
+          <div class="tool-info">
+            <div class="tool-name">MedRebel Academy</div>
+            <div class="tool-desc">AI-powered role-play coaching that trains your front desk to handle price-shoppers, overcome objections, and convert everyday callers into booked revenue. Tiered: 1-4 staff $100 · 5-10 staff $150 · 10+ staff $200.</div>
+          </div>
+          <div class="tool-price">From $100/mo</div>
         </div>
-        <div class="product-card launching">
-          <span class="product-icon">👥</span>
-          <span class="product-eyebrow">HR · Compliance</span>
-          <h3>MedRebel HR Portal</h3>
-          <p>Automates HR paperwork. Manages PTO. Generates handbooks and HIPAA policies. Employee onboarding, staff files, performance tracking. Everything an independent practice needs to manage their team compliantly without the expensive consultant.</p>
-          <span class="price">$100/mo with CRM · $200/mo standalone</span>
+        <div class="tool-row">
+          <div class="tool-info">
+            <div class="tool-name">Rebel Scout — Interactive Intel Heat Maps</div>
+            <div class="tool-desc">Interactive heatmaps overlay your patient density against competitor locations and demographic layers. The same firepower hospital systems use to expand their footprint.</div>
+          </div>
+          <div class="tool-price">$149/mo</div>
         </div>
-        <div class="product-card live">
-          <span class="product-icon">🎓</span>
-          <span class="product-eyebrow">Training · AI Role-Play</span>
-          <h3>MedRebel Academy</h3>
-          <p>Stop hoping they figure it out. Start training them to win. AI-powered role-play coaching that trains your front desk to handle price-shoppers, overcome objections, and convert everyday callers into booked revenue. Course progress tracked, every session scored.</p>
-          <span class="price">Starting at $100/mo</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PERFORMANCE & GROWTH -->
-    <div class="product-group growth">
-      <div class="product-group-header">
-        <div class="product-group-title">// Performance &amp; Growth</div>
-        <div class="product-group-subtitle">Intelligence, revenue, and visibility</div>
-      </div>
-      <div class="product-grid">
-        <div class="product-card live">
-          <span class="product-icon">📊</span>
-          <span class="product-eyebrow">Intelligence · Live Data</span>
-          <h3>Smart KPI Dashboards</h3>
-          <p>Ditch the static spreadsheets. Track live production, cancellations, and team performance with fully interactive dashboards. Our operations-trained AI analyzes your metrics weekly and delivers Chief Operator level insights and next-step recommendations. The executive team at Breathing Center of Houston relies on these daily.</p>
-          <span class="price">$149/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">📞</span>
-          <span class="product-eyebrow">Revenue · Reactivation</span>
-          <h3>Reactivation AI Agent</h3>
-          <p>Turn your stale database into booked revenue. Upload your list and this agent deploys a perfectly timed sequence of staff-recorded voicemail drops, personalized SMS, and emails to get patients back in the chair. Maximum conversion, zero manual dialing.</p>
-          <span class="price">$149/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">⭐</span>
-          <span class="product-eyebrow">Reputation · AI</span>
-          <h3>AI Reputation Manager</h3>
-          <p>Automated Google review requests after every appointment. AI drafts professional responses to reviews. 100% automated reputation management that builds authority while you sleep.</p>
-          <span class="price">$149/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">📱</span>
-          <span class="product-eyebrow">Content · AI Generator</span>
-          <h3>AI Social Content Engine</h3>
-          <p>Your practice on autopilot. Generates and publishes professional, HIPAA-compliant social media posts, captions, and images tailored perfectly to your healthcare vertical.</p>
-          <span class="price">$149/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">🔎</span>
-          <span class="product-eyebrow">SEO · AEO</span>
-          <h3>Advanced SEO &amp; AI Search (AEO)</h3>
-          <p>Get found by patients searching Google and AI answer engines like ChatGPT and Perplexity. Local SEO, content optimization, and AI citation strategy built specifically for healthcare.</p>
-          <span class="price">$99/mo</span>
-        </div>
-        <div class="product-card live">
-          <span class="product-icon">🗺️</span>
-          <span class="product-eyebrow">Growth · Intelligence</span>
-          <h3>Rebel Scout Heat Maps</h3>
-          <p>Stop guessing where your patients are. Interactive heatmaps overlay patient density against competitor locations and demographic layers. Payer mix across Medicare, Medicaid, and Private. The same firepower hospital systems use to expand their footprint.</p>
-          <span class="price">$149/mo</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMING SOON -->
-    <div class="product-group">
-      <div class="product-group-header">
-        <div class="product-group-title">// On the Horizon</div>
-        <div class="product-group-subtitle">Next release wave</div>
-      </div>
-      <div class="product-grid">
-        <div class="product-card launching">
-          <span class="product-icon">📝</span>
-          <span class="product-eyebrow">Clinical · AI</span>
-          <h3>Rebel AI Scribe</h3>
-          <p>AI medical scribe that instantly converts patient consultations into structured clinical notes across six specialties. Saves providers 2+ hours a day on charting so they can focus on patients, not paperwork.</p>
-          <span class="price">Coming Soon</span>
+        <div class="tool-row">
+          <div class="tool-info">
+            <div class="tool-name">Rebel AI Scribe <span class="soon-tag">COMING SOON</span></div>
+            <div class="tool-desc">AI medical scribe converts patient consultations into structured clinical notes across six specialties. Saves providers 2+ hours a day on charting.</div>
+          </div>
+          <div class="tool-price">TBD</div>
         </div>
       </div>
     </div>
 
     <!-- ALL-IN PACKAGE -->
     <div class="all-in">
-      <div class="all-in-eyebrow">// Or Skip the Math</div>
+      <div class="all-in-eyebrow">// Or Skip the Math · Want Everything? One Click.</div>
       <div class="all-in-header">
         <h3>Rebel All-In Package</h3>
         <div class="all-in-price">$2,399<span> /mo per location</span></div>
       </div>
-      <p class="all-in-desc">One package. Everything included. The full MedRebel operating system plus every AI add-on, integration, and our US-based elite support team. Priority onboarding included.</p>
+      <p class="all-in-desc">The average independent practice pays $7,921/month for 13 disconnected tools. The Rebel All-In replaces all of them. Over $5,500/month saved, $66,000+ per year. Unlimited Academy seats, PMS/EHR sync included, VOIP phone system, and Elite Customer Service, all included.</p>
       <ul class="all-in-features">
         <li>MedRebel OS Medical-Grade CRM</li>
         <li>MedRebel HR Portal</li>
@@ -1353,7 +1426,7 @@ footer .container {
         <li>Intelligent Patient Intake</li>
         <li>MedRebel Academy unlimited</li>
         <li>Rebel Scout Heat Maps</li>
-        <li>PMS/EHR Sync via Rebel Bridge</li>
+        <li>PMS/EHR Sync included</li>
         <li>HIPAA + BAA always included</li>
         <li>Priority support &amp; onboarding</li>
         <li>US-based elite support team</li>
